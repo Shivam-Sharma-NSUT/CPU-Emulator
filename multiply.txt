@@ -1,0 +1,18 @@
+   		ldac n
+		stac cnt    // for (cnt = n; cnt; cnt--)
+		clac        // ac = 0
+
+forloop :	ldac tmp
+		add res	    // ac = res
+		stac tmp    // res = res
+		ldac cnt
+		decac
+		stac cnt
+		jnz forloop	
+ldac tmp
+hlt
+
+n = 12
+res = 5
+cnt = 0
+tmp = 0;

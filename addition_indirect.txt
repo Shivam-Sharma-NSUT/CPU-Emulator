@@ -1,0 +1,11 @@
+// add two no in indirect mode
+// code section
+ldac x i   //loads x
+add y i
+hlt
+
+// data
+x = 24
+y = 25
+24 = 14
+25 = 13

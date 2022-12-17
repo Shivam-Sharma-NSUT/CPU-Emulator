@@ -1,0 +1,37 @@
+// factorial
+
+// code section
+rep : 	ldac res
+        jmp mul		// calling mul function
+
+up :	ldac n		// load n
+	decac		// n--
+	stac n		// commit n
+	jnz rep		// if n != 0 rep
+
+	ldac res	// load res
+	hlt		// halt
+
+// data section
+	n = 6		// counter value
+	res = 1		// result
+	cnt = 0		// temporary iterator
+	tmp = 0		// temparary vaiable to store intermediate value of mul function
+
+// subroutine 
+
+mul :   	ldac n 	    	// we want to multiply res and n
+		stac cnt    	// assigning temparory counter cnt = n
+		clac        	// ac = 0
+		stac tmp 	// tmp = 0
+
+forloop :	ldac tmp    	// ac = tmp
+		add res	    	// ac = ac + res (i.e ac = tmp + res)
+		stac tmp    	// tmp = ac storing calculation result into tmp
+		ldac cnt	// ac = cnt 
+		decac		// ac-- (i.e cnt--) 
+		stac cnt	// cnt = ac
+		jnz forloop	// if cnt == 0 loop
+		ldac tmp	// take tmp
+		stac res 	// store in res
+		jmp up		// return
